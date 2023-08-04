@@ -78,6 +78,16 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next_node
 
+    def get_middle_node(self):
+        faster_node = self.head
+        slower_node = self.head
+
+        while faster_node.next_node and faster_node.next_node.next_node:
+            faster_node = faster_node.next_node.next_node
+            slower_node = slower_node.next_node
+
+        return slower_node.data
+
 
 if __name__ == '__main__':
     linked_list = LinkedList()
@@ -98,3 +108,13 @@ if __name__ == '__main__':
     print("----------------------------")
     linked_list.remove_arbituarily("world")
     linked_list.traverse()
+
+    linked_list_2 = LinkedList()
+    linked_list_2.insert_at_end(1)
+    linked_list_2.insert_at_end(2)
+    linked_list_2.insert_at_end(3)
+    linked_list_2.insert_at_end(4)
+    linked_list_2.insert_at_end(5)
+    linked_list_2.traverse()
+    print("-------------------------------")
+    print(linked_list_2.get_middle_node())
