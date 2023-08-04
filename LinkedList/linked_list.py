@@ -13,7 +13,7 @@ class LinkedList:
         self.number_of_items = self.number_of_items + 1
         new_node = Node(data)
 
-        if self.head is None:
+        if not self.head:
             self.head = new_node
         else:
             new_node.next_node = self.head
@@ -23,44 +23,44 @@ class LinkedList:
         self.number_of_items = self.number_of_items + 1
         new_node = Node(data)
 
-        if self.head is None:
+        if not self.head:
             self.head = new_node
         else:
             current_node = self.head
-            while current_node.next_node is not None:
+            while current_node.next_node:
                 current_node = current_node.next_node
             current_node.next_node = new_node
 
 #not too sure
     def remove_at_start(self):
-        if self.head is not None:
+        if self.head:
             self.head = self.head.next_node
 
 #not too sure
     def remove_at_end(self):
-        if self.head is not None:
+        if self.head:
             current_node = self.head
             previous_node = None
-            while current_node.next_node is not None:
+            while current_node.next_node:
                 previous_node = current_node
                 current_node = current_node.next_node
         previous_node.next_node = None
 
     def remove_arbituarily(self, data):
-        if self.head is None:
+        if not self.head:
             return
 
         current_node = self.head
         previous_node = None
         
-        while current_node is not None and current_node.data != data:
+        while current_node and current_node.data != data:
            previous_node = current_node
            current_node = current_node.next_node
 
-        if current_node is None:
+        if not current_node:
             return
 
-        if previous_node is None:
+        if not previous_node:
             self.head = current_node.next_node
         else:
             previous_node.next_node = current_node.next_node

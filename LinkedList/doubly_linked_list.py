@@ -14,7 +14,7 @@ class DoublyLinkedList:
     def insert(self, data):
         current_node = Node(data)
 
-        if self.head is None:
+        if not self.head:
             self.head = current_node
             self.tail = current_node
         else:
@@ -25,14 +25,14 @@ class DoublyLinkedList:
     def traverse_forward(self):
         current_node = self.head
 
-        while current_node is not None:
+        while current_node:
             print(current_node.data)
             current_node = current_node.next_node
 
     def traverse_backward(self):
         current_node = self.tail
 
-        while current_node is not None:
+        while current_node:
             print(current_node.data)
             current_node = current_node.previous_node
 
