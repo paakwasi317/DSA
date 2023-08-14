@@ -88,6 +88,19 @@ class LinkedList:
 
         return slower_node.data
 
+    def reverse(self):
+        current_node = self.head
+        previous_mode = None
+        next_node = None
+
+        while current_node:
+            next_node = current_node.next_node
+            current_node.next_node = previous_mode
+            previous_mode = current_node
+            current_node = next_node
+
+        self.head = previous_mode
+
 
 if __name__ == '__main__':
     linked_list = LinkedList()
@@ -118,3 +131,13 @@ if __name__ == '__main__':
     linked_list_2.traverse()
     print("-------------------------------")
     print(linked_list_2.get_middle_node())
+    print("-------------------------------")
+    linked_list_3 = LinkedList()
+    linked_list_3.insert_at_start(1)
+    linked_list_3.insert_at_start(2)
+    linked_list_3.insert_at_start(3)
+    linked_list_3.insert_at_start(4)
+    linked_list_3.traverse()
+    print("-------------------------------")
+    linked_list_3.reverse()
+    linked_list_3.traverse()
